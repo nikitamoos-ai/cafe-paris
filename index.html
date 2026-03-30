@@ -4,6 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Café Paris Euskirchen – Brunch & Pâtisserie</title>
+
+  <!-- Google Consent Mode v2 – Defaults BEFORE any gtag/GA script -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    // Set all consent to 'denied' by default (GDPR / DMA requirement)
+    gtag('consent', 'default', {
+      ad_storage:           'denied',
+      analytics_storage:    'denied',
+      ad_user_data:         'denied',
+      ad_personalization:   'denied',
+      wait_for_update:      500
+    });
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <script>
@@ -68,6 +82,91 @@
   </style>
 </head>
 <body class="bg-cream font-sans text-charcoal overflow-x-hidden">
+
+<!-- ═══════════════════════════════════════════
+     COOKIE CONSENT BANNER
+═══════════════════════════════════════════ -->
+<div id="cookie-banner"
+     class="fixed bottom-0 inset-x-0 z-[9999] bg-navy text-cream shadow-2xl border-t-2 border-gold/30 hidden">
+  <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col md:flex-row items-start md:items-center gap-5">
+
+    <!-- Text -->
+    <div class="flex-1 text-sm leading-relaxed text-cream/80">
+      <p class="font-serif text-base text-cream mb-1">🍪 Diese Website verwendet Cookies</p>
+      Wir verwenden Cookies und ähnliche Technologien, um Ihnen die bestmögliche Nutzererfahrung zu bieten,
+      Zugriffe zu analysieren und personalisierte Inhalte und Werbung anzuzeigen.
+      Mit Klick auf <strong class="text-cream">„Alle akzeptieren"</strong> stimmen Sie der Nutzung aller Cookies zu.
+      Weitere Informationen finden Sie in unserer
+      <a href="datenschutz.html" class="text-gold hover:text-gold-l underline transition">Datenschutzerklärung</a>
+      und unserem <a href="impressum.html" class="text-gold hover:text-gold-l underline transition">Impressum</a>.
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+      <button id="cookie-settings-btn"
+              class="border border-cream/30 text-cream/70 px-5 py-2 text-xs tracking-widest uppercase hover:border-gold hover:text-gold transition">
+        Einstellungen
+      </button>
+      <button id="cookie-reject-btn"
+              class="border border-cream/40 text-cream px-5 py-2 text-xs tracking-widest uppercase hover:bg-white/10 transition">
+        Nur notwendige
+      </button>
+      <button id="cookie-accept-btn"
+              class="bg-gold text-navy px-6 py-2 text-xs tracking-widest uppercase font-bold hover:bg-gold-l transition">
+        Alle akzeptieren
+      </button>
+    </div>
+  </div>
+
+  <!-- Erweiterte Einstellungen (ausgeklappt) -->
+  <div id="cookie-details" class="hidden border-t border-white/10 bg-navy/80">
+    <div class="max-w-6xl mx-auto px-6 py-6 grid md:grid-cols-2 gap-4 text-sm">
+
+      <!-- Notwendige -->
+      <label class="flex items-start gap-3 cursor-not-allowed opacity-70">
+        <input type="checkbox" checked disabled class="mt-1 accent-gold shrink-0"/>
+        <div>
+          <p class="font-semibold text-cream">Notwendige Cookies</p>
+          <p class="text-cream/55 text-xs mt-0.5">Erforderlich für den Betrieb der Website. Können nicht deaktiviert werden.</p>
+        </div>
+      </label>
+
+      <!-- Analytics -->
+      <label class="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" id="cookie-analytics" class="mt-1 accent-gold shrink-0"/>
+        <div>
+          <p class="font-semibold text-cream">Analyse-Cookies</p>
+          <p class="text-cream/55 text-xs mt-0.5">Helfen uns zu verstehen, wie Besucher die Website nutzen (z. B. Google Analytics).</p>
+        </div>
+      </label>
+
+      <!-- Marketing -->
+      <label class="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" id="cookie-marketing" class="mt-1 accent-gold shrink-0"/>
+        <div>
+          <p class="font-semibold text-cream">Marketing-Cookies</p>
+          <p class="text-cream/55 text-xs mt-0.5">Ermöglichen personalisierte Werbung (z. B. Google Ads).</p>
+        </div>
+      </label>
+
+      <!-- Personalisierung -->
+      <label class="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" id="cookie-personalization" class="mt-1 accent-gold shrink-0"/>
+        <div>
+          <p class="font-semibold text-cream">Personalisierungs-Cookies</p>
+          <p class="text-cream/55 text-xs mt-0.5">Erlauben die Anpassung von Inhalten und Werbeanzeigen an Ihre Interessen.</p>
+        </div>
+      </label>
+
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-5 flex justify-end">
+      <button id="cookie-save-btn"
+              class="bg-gold text-navy px-7 py-2 text-xs tracking-widest uppercase font-bold hover:bg-gold-l transition">
+        Auswahl speichern
+      </button>
+    </div>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════════
      NAVIGATION
@@ -1031,6 +1130,10 @@
     <div class="text-cream/35 text-xs text-right">
       <p>© 2026 Café Paris Euskirchen</p>
       <p class="mt-1">Alle Rechte vorbehalten</p>
+      <div class="flex gap-4 justify-end mt-3">
+        <a href="impressum.html" class="hover:text-gold-l transition">Impressum</a>
+        <a href="datenschutz.html" class="hover:text-gold-l transition">Datenschutz</a>
+      </div>
     </div>
 
   </div>
@@ -1040,6 +1143,71 @@
      JAVASCRIPT
 ═══════════════════════════════════════════ -->
 <script>
+  /* ══════════════════════════════
+     COOKIE CONSENT
+  ══════════════════════════════ */
+  (function() {
+    const banner  = document.getElementById('cookie-banner');
+    const details = document.getElementById('cookie-details');
+    const stored  = localStorage.getItem('cookie_consent');
+
+    // Helper: update Google Consent Mode
+    function updateConsent(analytics, marketing, personalization) {
+      gtag('consent', 'update', {
+        analytics_storage:    analytics       ? 'granted' : 'denied',
+        ad_storage:           marketing       ? 'granted' : 'denied',
+        ad_user_data:         marketing       ? 'granted' : 'denied',
+        ad_personalization:   personalization ? 'granted' : 'denied',
+      });
+    }
+
+    // Helper: hide banner
+    function hideBanner() {
+      banner.classList.add('hidden');
+    }
+
+    // Show banner only if no consent stored yet
+    if (!stored) {
+      banner.classList.remove('hidden');
+    } else {
+      // Apply stored consent on page load
+      const c = JSON.parse(stored);
+      updateConsent(c.analytics, c.marketing, c.personalization);
+    }
+
+    // Accept all
+    document.getElementById('cookie-accept-btn').addEventListener('click', function() {
+      const consent = { analytics: true, marketing: true, personalization: true };
+      localStorage.setItem('cookie_consent', JSON.stringify(consent));
+      updateConsent(true, true, true);
+      hideBanner();
+    });
+
+    // Only necessary
+    document.getElementById('cookie-reject-btn').addEventListener('click', function() {
+      const consent = { analytics: false, marketing: false, personalization: false };
+      localStorage.setItem('cookie_consent', JSON.stringify(consent));
+      updateConsent(false, false, false);
+      hideBanner();
+    });
+
+    // Toggle settings panel
+    document.getElementById('cookie-settings-btn').addEventListener('click', function() {
+      details.classList.toggle('hidden');
+    });
+
+    // Save custom selection
+    document.getElementById('cookie-save-btn').addEventListener('click', function() {
+      const analytics       = document.getElementById('cookie-analytics').checked;
+      const marketing       = document.getElementById('cookie-marketing').checked;
+      const personalization = document.getElementById('cookie-personalization').checked;
+      const consent = { analytics, marketing, personalization };
+      localStorage.setItem('cookie_consent', JSON.stringify(consent));
+      updateConsent(analytics, marketing, personalization);
+      hideBanner();
+    });
+  })();
+
   /* ── Navbar: solid on scroll ── */
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
