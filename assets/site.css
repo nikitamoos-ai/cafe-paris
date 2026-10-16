@@ -397,3 +397,9 @@ body{font-family:var(--sans);background:var(--papier);color:var(--ink);-webkit-f
   .g::after{display:none}
   .gallery{padding:72px 0}
 }
+
+/* Speisekarte auf schmalen Handys: Zusatz-Listen einspaltig, damit Namen und Preise nie gequetscht werden */
+@media (max-width:480px){
+  #menu .grid.grid-cols-2{grid-template-columns:minmax(0,1fr)!important}
+  #menu .flex.justify-between > :first-child{overflow-wrap:anywhere}
+}

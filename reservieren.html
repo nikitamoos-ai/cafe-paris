@@ -403,6 +403,7 @@
     const v = id => (document.getElementById(id)||{}).value || '';
     st.name = v('rv-name').trim(); st.tel = v('rv-tel').trim(); st.email = v('rv-email').trim(); st.note = v('rv-note').trim();
     st.ok = !!(document.getElementById('rv-ok')||{}).checked;
+    st.hp = v('rv-website');                         // unsichtbares Spam-Feld, vor dem Neuaufbau sichern
   }
 
   const FIELD_ERR = {name:['rv-name','Bitte geben Sie Ihren Namen an.'], tel:['rv-tel','Bitte geben Sie eine Telefonnummer an, unter der wir Sie erreichen.'],
@@ -419,7 +420,7 @@
     st.sending = true; render();
     call('/book', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({
       day:st.k, start:st.t, p:st.p, name:st.name, tel:st.tel, email:st.email, note:st.note, consent:true,
-      website:(document.getElementById('rv-website')||{}).value || ''
+      website: st.hp || ''
     })}).then(r=>{
       st.sending = false; st.done = r; st.step = 'done'; invalidate(); render();
     }, x=>{
