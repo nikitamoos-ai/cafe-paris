@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Tisch reservieren – Café Paris Euskirchen</title>
+  <meta name="description" content="Reservieren Sie online Ihren Tisch im Café Paris Euskirchen – Tag, Personen und Uhrzeit wählen, fertig." />
+  <meta name="theme-color" content="#0F1B2D" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Café Paris" />
+
+  <!-- Google Consent Mode v2 – Defaults BEFORE any gtag/GA script -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    // Set all consent to 'denied' by default (GDPR / DMA requirement)
+    gtag('consent', 'default', {
+      ad_storage:           'denied',
+      analytics_storage:    'denied',
+      ad_user_data:         'denied',
+      ad_personalization:   'denied',
+      wait_for_update:      500
+    });
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { cream:'#FAF6EF', 'cream-d':'#F1E9DB', navy:'#0F1B2D', 'navy-l':'#16263C', gold:'#C2A15F', 'gold-l':'#E3CB93', 'gold-d':'#7A5E2C', wine:'#8E2F35', charcoal:'#1D2430' },
+      fontFamily: { serif:['Cormorant Garamond','Georgia','serif'], sans:['Jost','Helvetica Neue','Arial','sans-serif'] }
+    } } }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body class="bg-cream font-sans text-charcoal overflow-x-hidden">
+<a class="skip" href="#main">Zum Inhalt springen</a>
+
+<!-- Cookie-Hinweis -->
+<div id="cookie-banner"
+     class="fixed bottom-0 inset-x-0 z-[9999] bg-navy text-cream shadow-2xl border-t-2 border-gold/30 hidden">
+  <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col md:flex-row items-start md:items-center gap-5">
+
+    <!-- Text -->
+    <div class="flex-1 text-sm leading-relaxed text-cream/80">
+      <p class="font-serif text-base text-cream mb-1">Diese Website verwendet Cookies</p>
+      Wir verwenden Cookies und ähnliche Technologien, um Ihnen die bestmögliche Nutzererfahrung zu bieten,
+      Zugriffe zu analysieren und personalisierte Inhalte und Werbung anzuzeigen.
+      Mit Klick auf <strong class="text-cream">„Alle akzeptieren"</strong> stimmen Sie der Nutzung aller Cookies zu.
+      Weitere Informationen finden Sie in unserer
+      <a href="datenschutz.html" class="text-gold hover:text-gold-l underline transition">Datenschutzerklärung</a>
+      und unserem <a href="impressum.html" class="text-gold hover:text-gold-l underline transition">Impressum</a>.
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+      <button id="cookie-settings-btn"
+              class="border border-cream/30 text-cream/70 px-5 py-2 text-xs tracking-widest uppercase hover:border-gold hover:text-gold transition">
+        Einstellungen
+      </button>
+      <button id="cookie-reject-btn"
+              class="border border-cream/40 text-cream px-5 py-2 text-xs tracking-widest uppercase hover:bg-white/10 transition">
+        Nur notwendige
+      </button>
+      <button id="cookie-accept-btn"
+              class="bg-gold text-navy px-6 py-2 text-xs tracking-widest uppercase font-bold hover:bg-gold-l transition">
+        Alle akzeptieren
+      </button>
+    </div>
+  </div>
+
+  <!-- Erweiterte Einstellungen (ausgeklappt) -->
+  <div id="cookie-details" class="hidden border-t border-white/10 bg-navy/80">
+    <div class="max-w-6xl mx-auto px-6 py-6 grid md:grid-cols-2 gap-4 text-sm">
+
+      <!-- Notwendige -->
+      <label class="flex items-start gap-3 cursor-not-allowed opacity-70">
+        <input type="checkbox" checked disabled class="mt-1 accent-gold shrink-0"/>
+        <div>
+          <p class="font-semibold text-cream">Notwendige Cookies</p>
+          <p class="text-cream/55 text-xs mt-0.5">Erforderlich für den Betrieb der Website. Können nicht deaktiviert werden.</p>
+        </div>
+      </label>
+
+      <!-- Analytics -->
+      <label class="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" id="cookie-analytics" class="mt-1 accent-gold shrink-0"/>
+        <div>
+          <p class="font-semibold text-cream">Analyse-Cookies</p>
+          <p class="text-cream/55 text-xs mt-0.5">Helfen uns zu verstehen, wie Besucher die Website nutzen (z. B. Google Analytics).</p>
+        </div>
+      </label>
+
+      <!-- Marketing -->
+      <label class="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" id="cookie-marketing" class="mt-1 accent-gold shrink-0"/>
+        <div>
+          <p class="font-semibold text-cream">Marketing-Cookies</p>
+          <p class="text-cream/55 text-xs mt-0.5">Ermöglichen personalisierte Werbung (z. B. Google Ads).</p>
+        </div>
+      </label>
+
+      <!-- Personalisierung -->
+      <label class="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" id="cookie-personalization" class="mt-1 accent-gold shrink-0"/>
+        <div>
+          <p class="font-semibold text-cream">Personalisierungs-Cookies</p>
+          <p class="text-cream/55 text-xs mt-0.5">Erlauben die Anpassung von Inhalten und Werbeanzeigen an Ihre Interessen.</p>
+        </div>
+      </label>
+
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-5 flex justify-end">
+      <button id="cookie-save-btn"
+              class="bg-gold text-navy px-7 py-2 text-xs tracking-widest uppercase font-bold hover:bg-gold-l transition">
+        Auswahl speichern
+      </button>
+    </div>
+  </div>
+</div>
+
+<nav class="nav solid" aria-label="Hauptnavigation">
+  <div class="nav-in">
+    <a href="index.html#top" class="logo" aria-label="Café Paris – Startseite"><b>Café Paris</b><span>Euskirchen</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">Über uns</a></li>
+      <li><a href="speisekarte.html">Speisekarte</a></li>
+      <li><a href="index.html#gallery">Galerie</a></li>
+      <li><a href="index.html#contact">Kontakt</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+4922517772127" class="btn-pill btn-line">Anrufen</a>
+      <a href="reservieren.html" class="btn-pill btn-brass">Reservieren</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mnav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+    </button>
+  </div>
+</nav>
+<div class="mnav" id="mnav" role="dialog" aria-modal="true" aria-label="Menü" aria-hidden="true">
+  <button class="burger x" data-close-menu aria-label="Menü schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <a class="l" href="index.html#about" data-close-menu>Über uns</a>
+  <a class="l" href="speisekarte.html" data-close-menu>Speisekarte</a>
+  <a class="l" href="index.html#gallery" data-close-menu>Galerie</a>
+  <a class="l" href="index.html#contact" data-close-menu>Kontakt</a>
+  <a class="btn-pill btn-brass" href="reservieren.html">Tisch reservieren</a>
+  <a class="tel" href="tel:+4922517772127">02251 / 7772127</a>
+</div>
+
+<main id="main">
+  <header class="dark page-head">
+    <svg class="arch" viewBox="0 0 400 600" preserveAspectRatio="none" aria-hidden="true"><path class="a1" d="M10 600 V200 A190 190 0 0 1 390 200 V600"/><path class="a2" d="M24 600 V204 A176 176 0 0 1 376 204 V600"/></svg>
+    <div class="wrap">
+      <span class="eyebrow on-dark">Réservation</span>
+      <h1>Tisch <em>reservieren</em></h1>
+      <p>Personenzahl, Tag und Uhrzeit wählen – wir halten Ihnen einen Tisch frei.</p>
+    </div>
+  </header>
+
+  <section class="rv-section">
+    <div class="wrap" style="max-width:1000px">
+      <div class="rv-card p-6 md:p-12" id="rv" aria-live="polite">
+        <p class="rv-note">Die Online-Reservierung wird geladen …</p>
+      </div>
+      <div class="rv-info">
+        <div><b>Öffnungszeiten</b><p>Mo – Sa: 09:00 – 19:00 Uhr<br>So &amp; Feiertage: 09:00 – 18:00 Uhr</p></div>
+        <div><b>Größere Gruppen</b><p>Für Feiern und große Runden rufen Sie uns gerne an – wir finden eine Lösung.</p></div>
+        <div><b>Lieber persönlich?</b><p><a href="tel:+4922517772127" style="color:var(--nuit);font-weight:600">02251 / 7772127</a><br>Berliner Straße 5 · Euskirchen</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html#top" class="logo"><b>Café Paris</b><span>Euskirchen</span></a>
+        <p style="margin-top:18px;max-width:300px">Modern Brunch Culture meets French Elegance – mitten in Euskirchen.</p>
+      </div>
+      <div>
+        <h4>Besuchen</h4>
+        <p>Berliner Straße 5<br>53879 Euskirchen<br><a href="tel:+4922517772127">02251 / 7772127</a></p>
+      </div>
+      <div>
+        <h4>Öffnungszeiten</h4>
+        <p>Mo – Sa · 09:00 – 19:00 Uhr<br>So &amp; Feiertage · 09:00 – 18:00 Uhr</p>
+        <p style="margin-top:10px"><a href="reservieren.html">Tisch reservieren →</a></p>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Café Paris Euskirchen · Alle Rechte vorbehalten</span>
+      <span><a href="impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ══════════════════════════════
+     COOKIE CONSENT
+  ══════════════════════════════ */
+  (function() {
+    const banner  = document.getElementById('cookie-banner');
+    const details = document.getElementById('cookie-details');
+    const stored  = localStorage.getItem('cookie_consent');
+
+    // Helper: update Google Consent Mode
+    function updateConsent(analytics, marketing, personalization) {
+      gtag('consent', 'update', {
+        analytics_storage:    analytics       ? 'granted' : 'denied',
+        ad_storage:           marketing       ? 'granted' : 'denied',
+        ad_user_data:         marketing       ? 'granted' : 'denied',
+        ad_personalization:   personalization ? 'granted' : 'denied',
+      });
+    }
+
+    // Helper: hide banner
+    function hideBanner() {
+      banner.classList.add('hidden');
+    }
+
+    // Show banner only if no consent stored yet
+    if (!stored) {
+      banner.classList.remove('hidden');
+    } else {
+      // Apply stored consent on page load
+      const c = JSON.parse(stored);
+      updateConsent(c.analytics, c.marketing, c.personalization);
+    }
+
+    // Accept all
+    document.getElementById('cookie-accept-btn').addEventListener('click', function() {
+      const consent = { analytics: true, marketing: true, personalization: true };
+      localStorage.setItem('cookie_consent', JSON.stringify(consent));
+      updateConsent(true, true, true);
+      hideBanner();
+    });
+
+    // Only necessary
+    document.getElementById('cookie-reject-btn').addEventListener('click', function() {
+      const consent = { analytics: false, marketing: false, personalization: false };
+      localStorage.setItem('cookie_consent', JSON.stringify(consent));
+      updateConsent(false, false, false);
+      hideBanner();
+    });
+
+    // Toggle settings panel
+    document.getElementById('cookie-settings-btn').addEventListener('click', function() {
+      details.classList.toggle('hidden');
+    });
+
+    // Save custom selection
+    document.getElementById('cookie-save-btn').addEventListener('click', function() {
+      const analytics       = document.getElementById('cookie-analytics').checked;
+      const marketing       = document.getElementById('cookie-marketing').checked;
+      const personalization = document.getElementById('cookie-personalization').checked;
+      const consent = { analytics, marketing, personalization };
+      localStorage.setItem('cookie_consent', JSON.stringify(consent));
+      updateConsent(analytics, marketing, personalization);
+      hideBanner();
+    });
+  })();
+
+</script>
+<script src="assets/site.js"></script>
+<script>window.CP_API = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) ? '/api' : 'https://cafe-paris-tischplan.vercel.app/api';</script>
+<script>
+/* Online-Reservierung: Die Website rechnet nichts selbst. Sie fragt den Server nach freien Uhrzeiten
+   und schickt die Buchung dorthin – der Server prüft alles neu und wählt den Tisch. */
+(function(){
+  const box = document.getElementById('rv');
+  const API = window.CP_API || '/api';
+  const pad = n => String(n).padStart(2,'0');
+  const dkey = d => d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+  const keyDate = k => { const [y,m,d] = k.split('-').map(Number); return new Date(y,m-1,d); };
+  const fmt = m => pad(Math.floor(m/60))+':'+pad(m%60);
+  const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const dayLabel = (k, long) => keyDate(k).toLocaleDateString('de-DE', long ? {weekday:'long', day:'numeric', month:'long'} : {weekday:'short', day:'numeric', month:'numeric'});
+  const monthStart = d => new Date(d.getFullYear(), d.getMonth(), 1);
+  const monthKey = d => d.getFullYear()+'-'+pad(d.getMonth()+1);
+  const MONTHS = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+  const PHONE = '<a class="underline" href="tel:+4922517772127">02251 / 7772127</a>';
+
+  const st = {step:'when', k:null, m:null, p:2, t:null, name:'', tel:'', email:'', note:'', ok:false, err:{}, done:null, sending:false};
+  let meta = null;                      // heute, letzter buchbarer Tag, max. Personen (vom Server)
+  const cache = {};                     // 'p|YYYY-MM' → { days } | 'loading' | 'error'
+
+  async function call(path, opt){
+    const r = await fetch(API+path, Object.assign({cache:'no-store', credentials:'omit'}, opt||{}));
+    let data = null; try { data = await r.json(); } catch(e) {}
+    if(!r.ok){ const e = new Error((data && data.error) || 'http'); e.status = r.status; e.data = data || {}; throw e; }
+    return data;
+  }
+
+  function load(m, p){
+    const key = p+'|'+monthKey(m);
+    if(cache[key]) return Promise.resolve(cache[key]);
+    cache[key] = 'loading';
+    const from = dkey(m), to = dkey(new Date(m.getFullYear(), m.getMonth()+1, 0));
+    return call('/availability?from='+from+'&to='+to+'&p='+p).then(res=>{
+      meta = {today:res.today, last:res.last, maxP:res.maxP};
+      cache[key] = res; return res;
+    }, e=>{ cache[key] = 'error'; throw e; });
+  }
+  const daysOf = (k, p) => { const c = cache[p+'|'+k.slice(0,7)]; return c && typeof c==='object' ? c.days : null; };
+  const dayInfo = (k, p) => { const d = daysOf(k, p); return d ? d[k] : undefined; };
+  function invalidate(){ for(const k of Object.keys(cache)) delete cache[k]; }
+
+  function calendar(){
+    const m = st.m, today = meta.today, last = meta.last;
+    const first = (m.getDay()+6)%7, days = new Date(m.getFullYear(), m.getMonth()+1, 0).getDate();
+    const loading = !daysOf(dkey(m), st.p);
+    let cells = ['Mo','Di','Mi','Do','Fr','Sa','So'].map(d=>'<div class="rv-wd">'+d+'</div>').join('');
+    for(let i=0;i<first;i++) cells += '<div></div>';
+    for(let d=1; d<=days; d++){
+      const k = dkey(new Date(m.getFullYear(), m.getMonth(), d));
+      let cls = '', title = '', off = loading || k < today || k > last;
+      if(!off){
+        const info = dayInfo(k, st.p);
+        if(!info || !info.times){ off = true; if(info && info.closed){ cls = 'full'; title = 'geschlossen'; } }
+        else if(!info.times.length){ off = true; cls = 'full'; title = 'online ausgebucht'; }
+      }
+      if(k===today) cls += ' today';
+      cells += '<button type="button" class="rv-day '+cls+'" data-k="'+k+'" aria-pressed="'+(st.k===k)+'"'+(off?' disabled':'')+(title?' title="'+title+'"':'')+' aria-label="'+esc(dayLabel(k,true))+(title?' – '+title:'')+'">'+d+'</button>';
+    }
+    return '<div class="rv-cal"'+(loading?' aria-busy="true" style="opacity:.6"':'')+'><div class="rv-cal-head">'+
+      '<button type="button" class="rv-nav" data-mon="-1" aria-label="Vorheriger Monat"'+(dkey(m) <= today.slice(0,7)+'-01'?' disabled':'')+'>‹</button>'+
+      '<b>'+MONTHS[m.getMonth()]+' '+m.getFullYear()+'</b>'+
+      '<button type="button" class="rv-nav" data-mon="1" aria-label="Nächster Monat"'+(monthKey(m) >= last.slice(0,7)?' disabled':'')+'>›</button>'+
+      '</div><div class="rv-grid">'+cells+'</div></div>';
+  }
+
+  function whenStep(){
+    const info = st.k ? dayInfo(st.k, st.p) : undefined;
+    let times;
+    if(!st.k) times = '<p class="rv-note">Bitte wählen Sie einen Tag.</p>';
+    else if(info === undefined && daysOf(st.k, st.p) === null) times = '<p class="rv-note">Freie Zeiten werden geladen …</p>';
+    else if(!info || !info.times){
+      times = '<p class="rv-note">'+(info && info.closed ? 'An diesem Tag haben wir geschlossen.' : 'Dieser Tag ist online nicht buchbar.')+' Bitte wählen Sie einen anderen Tag oder rufen Sie uns an: '+PHONE+'.</p>';
+    } else if(!info.times.length){
+      times = '<p class="rv-note">'+(st.k===meta.today ? 'Für heute ist online keine Reservierung mehr möglich.' : 'An diesem Tag ist online leider nichts mehr frei.')+' Bitte wählen Sie einen anderen Tag oder rufen Sie uns an: '+PHONE+'.</p>';
+    } else {
+      times = '<div class="rv-times">'+info.times.map(m=>'<button type="button" class="rv-chip" data-t="'+m+'" aria-pressed="'+(st.t===m)+'">'+fmt(m)+'</button>').join('')+'</div>';
+    }
+    const persons = Array.from({length:meta.maxP},(_,i)=>i+1);
+    return '<div class="grid md:grid-cols-2 gap-8 md:gap-10">'+
+      '<div class="grid gap-6 content-start">'+
+        '<div><label class="rv-lab" for="rv-p">Personen</label><select id="rv-p" class="rv-select">'+
+          persons.map(n=>'<option value="'+n+'"'+(st.p===n?' selected':'')+'>'+n+' '+(n===1?'Person':'Personen')+'</option>').join('')+
+        '</select><p class="rv-note mt-2">Mehr als '+meta.maxP+' Personen? Bitte rufen Sie uns an.</p></div>'+
+        '<div><span class="rv-lab">Datum</span>'+calendar()+'</div>'+
+      '</div>'+
+      '<div><span class="rv-lab">Uhrzeit</span><p class="font-serif text-2xl text-navy mb-4">'+(st.k ? esc(dayLabel(st.k,true)) : '–')+'</p>'+
+        (st.err.form?'<p class="rv-err mb-4" role="alert">'+st.err.form+'</p>':'')+times+'</div>'+
+    '</div>';
+  }
+
+  function infoStep(){
+    const e = st.err;
+    const f = (id, label, type, val, extra) => '<div><label class="rv-lab" for="'+id+'">'+label+'</label><input class="rv-in'+(e[id]?' bad':'')+'" id="'+id+'" type="'+type+'" value="'+esc(val)+'" '+(extra||'')+'>'+(e[id]?'<p class="rv-err mt-1">'+e[id]+'</p>':'')+'</div>';
+    return '<form id="rv-form" novalidate class="grid gap-6">'+
+      '<div class="flex flex-wrap items-baseline justify-between gap-3 border-b border-navy/10 pb-4"><p class="font-serif text-2xl text-navy">'+esc(dayLabel(st.k,true))+' · '+fmt(st.t)+' Uhr · '+st.p+' '+(st.p===1?'Person':'Personen')+'</p><button type="button" class="text-sm underline text-navy/70" data-back>Ändern</button></div>'+
+      '<div class="grid md:grid-cols-2 gap-5">'+
+        f('rv-name','Name','text',st.name,'autocomplete="name" autocapitalize="words" autocorrect="off" spellcheck="false" enterkeyhint="next" maxlength="80"')+
+        f('rv-tel','Telefon','tel',st.tel,'autocomplete="tel" inputmode="tel" enterkeyhint="next" maxlength="40"')+
+        f('rv-email','E-Mail','email',st.email,'autocomplete="email" inputmode="email" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="next" maxlength="120"')+
+        '<div><label class="rv-lab" for="rv-note">Anmerkung (optional)</label><input class="rv-in" id="rv-note" type="text" enterkeyhint="send" maxlength="300" value="'+esc(st.note)+'" placeholder="z. B. Kinderstuhl, Geburtstag, Allergie"></div>'+
+      '</div>'+
+      '<div class="rv-hp" aria-hidden="true"><label for="rv-website">Website</label><input id="rv-website" type="text" tabindex="-1" autocomplete="off"></div>'+
+      '<label class="flex items-start gap-3 text-sm text-charcoal/80"><input type="checkbox" id="rv-ok" '+(st.ok?'checked':'')+' class="mt-1"><span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Reservierung gespeichert werden. Mehr dazu in der <a href="datenschutz.html" class="underline">Datenschutzerklärung</a>.</span></label>'+
+      (e.ok?'<p class="rv-err">'+e.ok+'</p>':'')+(e.form?'<p class="rv-err" role="alert">'+e.form+'</p>':'')+
+      '<div class="flex flex-wrap gap-3 justify-end"><button type="button" class="rv-btn ghost" data-back>Zurück</button><button type="submit" class="rv-btn"'+(st.sending?' disabled':'')+'>'+(st.sending?'Wird gesendet …':'Verbindlich reservieren')+'</button></div>'+
+    '</form>';
+  }
+
+  function doneStep(){
+    const r = st.done, pending = r.status==='pending';
+    return '<div class="text-center grid gap-4 justify-items-center py-4">'+
+      '<div class="rv-done-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div>'+
+      '<h3 class="font-serif text-navy" style="font-size:clamp(2rem,4vw,2.8rem);font-weight:600;line-height:1.05">'+(pending?'Vielen Dank für Ihre Anfrage':'Ihr Tisch ist reserviert')+'</h3>'+
+      '<p class="text-charcoal/80">'+esc(dayLabel(r.day,true))+' · '+fmt(r.start)+' Uhr · '+r.p+' '+(r.p===1?'Person':'Personen')+' · auf den Namen '+esc(r.name)+'</p>'+
+      '<p class="rv-note max-w-md">'+(pending?'Wir prüfen Ihre Anfrage und melden uns in Kürze bei Ihnen.':'Wir freuen uns auf Ihren Besuch!')+' Falls etwas dazwischenkommt, rufen Sie uns bitte an: 02251 / 7772127.</p>'+
+      '<div class="flex flex-wrap gap-3 justify-center"><button type="button" class="rv-btn" data-ics>In Kalender eintragen</button><button type="button" class="rv-btn ghost" data-again>Weitere Reservierung</button></div></div>';
+  }
+
+  function unavailable(){
+    box.innerHTML = '<p class="rv-note">Die Online-Reservierung ist gerade nicht erreichbar. Bitte rufen Sie uns an: '+PHONE+'.</p>';
+  }
+
+  // Benötigte Monate laden (angezeigter Monat und Monat des gewählten Tags), danach neu zeichnen
+  function render(){
+    if(!meta){ box.innerHTML = '<p class="rv-note">Freie Zeiten werden geladen …</p>'; return; }
+    box.innerHTML = st.step==='when' ? whenStep() : st.step==='info' ? infoStep() : doneStep();
+    const f = document.getElementById('rv-form'); if(f) f.addEventListener('submit', submit);
+    if(st.step==='when'){
+      const need = [st.m].concat(st.k ? [monthStart(keyDate(st.k))] : []).filter(m=>!cache[st.p+'|'+monthKey(m)]);
+      if(need.length) Promise.all(need.map(m=>load(m, st.p))).then(render, unavailable);
+    }
+  }
+
+  function readForm(){
+    const v = id => (document.getElementById(id)||{}).value || '';
+    st.name = v('rv-name').trim(); st.tel = v('rv-tel').trim(); st.email = v('rv-email').trim(); st.note = v('rv-note').trim();
+    st.ok = !!(document.getElementById('rv-ok')||{}).checked;
+  }
+
+  const FIELD_ERR = {name:['rv-name','Bitte geben Sie Ihren Namen an.'], tel:['rv-tel','Bitte geben Sie eine Telefonnummer an, unter der wir Sie erreichen.'],
+    email:['rv-email','Bitte geben Sie eine gültige E-Mail-Adresse an.'], consent:['ok','Bitte bestätigen Sie die Einwilligung.']};
+
+  function submit(e){
+    e.preventDefault(); if(st.sending) return; readForm();
+    const err = {};
+    if(st.name.length < 2) err['rv-name'] = FIELD_ERR.name[1];
+    if(st.tel.replace(/\D/g,'').length < 6) err['rv-tel'] = FIELD_ERR.tel[1];
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(st.email)) err['rv-email'] = FIELD_ERR.email[1];
+    if(!st.ok) err.ok = FIELD_ERR.consent[1];
+    st.err = err; if(Object.keys(err).length){ render(); return; }
+    st.sending = true; render();
+    call('/book', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({
+      day:st.k, start:st.t, p:st.p, name:st.name, tel:st.tel, email:st.email, note:st.note, consent:true,
+      website:(document.getElementById('rv-website')||{}).value || ''
+    })}).then(r=>{
+      st.sending = false; st.done = r; st.step = 'done'; invalidate(); render();
+    }, x=>{
+      st.sending = false;
+      if(x.status === 409){
+        invalidate(); st.step = 'when'; st.t = null;
+        st.err = {form: x.data.error==='too_many_people' ? 'Für diese Personenzahl reservieren Sie bitte telefonisch: '+PHONE+'.' : 'Diese Uhrzeit wurde gerade vergeben. Bitte wählen Sie eine andere – Ihre Angaben bleiben gespeichert.'};
+      } else if(x.status === 400 && FIELD_ERR[x.data.field]){
+        const [id, msg] = FIELD_ERR[x.data.field]; st.err = {[id]: msg};
+      } else if(x.status === 429){
+        st.err = {form:'Zu viele Anfragen in kurzer Zeit. Bitte versuchen Sie es in ein paar Minuten erneut oder rufen Sie uns an: '+PHONE+'.'};
+      } else {
+        st.err = {form:'Die Reservierung konnte gerade nicht gesendet werden. Bitte versuchen Sie es erneut oder rufen Sie uns an: '+PHONE+'.'};
+      }
+      render();
+    });
+  }
+
+  // Reservierung als Kalendereintrag (.ics) – öffnet auf iPhone/iPad direkt den Kalender
+  function addToCalendar(r){
+    const d = r.day.replace(/-/g,''), t = m => pad(Math.floor(m/60))+pad(m%60)+'00';
+    const dur = r.p >= 6 ? 120 : 90, end = r.start + dur;
+    const stamp = new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z';
+    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Cafe Paris Euskirchen//Reservierung//DE','BEGIN:VEVENT',
+      'UID:'+d+t(r.start)+'-'+Math.random().toString(36).slice(2)+'@cafe-paris-euskirchen','DTSTAMP:'+stamp,
+      'DTSTART;TZID=Europe/Berlin:'+d+'T'+t(r.start),'DTEND;TZID=Europe/Berlin:'+d+'T'+t(Math.min(end,1439)),
+      'SUMMARY:Tisch im Café Paris ('+r.p+' '+(r.p===1?'Person':'Personen')+')','LOCATION:Café Paris\\, Berliner Straße 5\\, 53879 Euskirchen',
+      'DESCRIPTION:Reservierung auf den Namen '+String(r.name).replace(/[,;\\]/g,' ')+'. Bei Änderungen bitte anrufen: 02251 / 7772127',
+      'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([ics], {type:'text/calendar;charset=utf-8'}));
+    a.download = 'Cafe-Paris-Reservierung.ics'; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(a.href), 4000);
+  }
+
+  box.addEventListener('click', e=>{
+    if(e.target.closest('[data-ics]') && st.done){ addToCalendar(st.done); return; }
+    const t = e.target.closest('[data-k],[data-mon],[data-t],[data-back],[data-again]'); if(!t || t.disabled) return;
+    if(st.step==='when') st.err = {};
+    if(t.dataset.k){ st.k = t.dataset.k; st.t = null; }
+    else if(t.dataset.mon){ st.m = new Date(st.m.getFullYear(), st.m.getMonth() + (+t.dataset.mon), 1); }
+    else if(t.dataset.t){ st.t = +t.dataset.t; st.err = {}; st.step = 'info'; }
+    else if(t.hasAttribute('data-back')){ readForm(); st.step = 'when'; }
+    else if(t.hasAttribute('data-again')){ Object.assign(st, {step:'when', t:null, name:'', tel:'', email:'', note:'', ok:false, err:{}, done:null}); }
+    render();
+  });
+  box.addEventListener('change', e=>{ if(e.target.id==='rv-p'){ st.p = +e.target.value; st.t = null; render(); } });
+  // Zurück auf der Seite (anderer Tab, Handy entsperrt): frische Zeiten holen
+  document.addEventListener('visibilitychange', ()=>{ if(!document.hidden && st.step==='when' && meta){ invalidate(); render(); } });
+
+  // Start: aktuellen Monat laden und den ersten Tag mit freien Zeiten vorauswählen
+  (async ()=>{
+    try {
+      const first = await load(monthStart(new Date()), st.p);
+      const today = keyDate(first.today);
+      st.m = monthStart(today);
+      for(let i=0;i<7 && !st.k;i++){
+        const d = new Date(today); d.setDate(d.getDate()+i);
+        const k = dkey(d);
+        if(k > first.last) break;
+        if(!daysOf(k, st.p)) await load(monthStart(d), st.p);
+        const info = dayInfo(k, st.p);
+        if(info && info.times && info.times.length) st.k = k;
+      }
+      if(!st.k) st.k = first.today;
+      st.m = monthStart(keyDate(st.k));
+      render();
+    } catch(e){ unavailable(); }
+  })();
+})();
+</script>
+</body>
+</html>

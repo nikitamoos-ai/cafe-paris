@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Datenschutz – Café Paris Euskirchen</title>
+  <meta name="description" content="Datenschutzerklärung des Café Paris Euskirchen." />
+  <meta name="theme-color" content="#0F1B2D" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Café Paris" />
+
+  <!-- Google Consent Mode v2 – Defaults BEFORE any gtag/GA script -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    // Set all consent to 'denied' by default (GDPR / DMA requirement)
+    gtag('consent', 'default', {
+      ad_storage:           'denied',
+      analytics_storage:    'denied',
+      ad_user_data:         'denied',
+      ad_personalization:   'denied',
+      wait_for_update:      500
+    });
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { cream:'#FAF6EF', 'cream-d':'#F1E9DB', navy:'#0F1B2D', 'navy-l':'#16263C', gold:'#C2A15F', 'gold-l':'#E3CB93', 'gold-d':'#7A5E2C', wine:'#8E2F35', charcoal:'#1D2430' },
+      fontFamily: { serif:['Cormorant Garamond','Georgia','serif'], sans:['Jost','Helvetica Neue','Arial','sans-serif'] }
+    } } }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body class="bg-cream font-sans text-charcoal overflow-x-hidden">
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<nav class="nav solid" aria-label="Hauptnavigation">
+  <div class="nav-in">
+    <a href="index.html#top" class="logo" aria-label="Café Paris – Startseite"><b>Café Paris</b><span>Euskirchen</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">Über uns</a></li>
+      <li><a href="speisekarte.html">Speisekarte</a></li>
+      <li><a href="index.html#gallery">Galerie</a></li>
+      <li><a href="index.html#contact">Kontakt</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+4922517772127" class="btn-pill btn-line">Anrufen</a>
+      <a href="reservieren.html" class="btn-pill btn-brass">Reservieren</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mnav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+    </button>
+  </div>
+</nav>
+<div class="mnav" id="mnav" role="dialog" aria-modal="true" aria-label="Menü" aria-hidden="true">
+  <button class="burger x" data-close-menu aria-label="Menü schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <a class="l" href="index.html#about" data-close-menu>Über uns</a>
+  <a class="l" href="speisekarte.html" data-close-menu>Speisekarte</a>
+  <a class="l" href="index.html#gallery" data-close-menu>Galerie</a>
+  <a class="l" href="index.html#contact" data-close-menu>Kontakt</a>
+  <a class="btn-pill btn-brass" href="reservieren.html">Tisch reservieren</a>
+  <a class="tel" href="tel:+4922517772127">02251 / 7772127</a>
+</div>
+
+<main id="main">
+  <header class="dark page-head" style="padding-bottom:90px">
+    <svg class="arch" viewBox="0 0 400 600" preserveAspectRatio="none" aria-hidden="true"><path class="a1" d="M10 600 V200 A190 190 0 0 1 390 200 V600"/><path class="a2" d="M24 600 V204 A176 176 0 0 1 376 204 V600"/></svg>
+    <div class="wrap"><span class="eyebrow on-dark">Protection des données</span><h1>Datenschutz</h1></div>
+  </header>
+  <div class="wrap legal-page" style="max-width:820px">
+    <div class="menu-card" style="margin-top:-50px;margin-bottom:100px">
+
+  <section class="mb-10">
+    <h2 class="font-serif text-2xl text-navy mb-4">1. Verantwortlicher</h2>
+    <p class="text-charcoal/80 leading-relaxed">[VOLLSTÄNDIGER NAME DES INHABERS]<br>Café Paris Euskirchen<br>Berliner Straße 5, 53879 Euskirchen<br>Telefon: 02251 / 7772127 · E-Mail: [E-MAIL-ADRESSE]</p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="font-serif text-2xl text-navy mb-4">2. Aufruf dieser Website (Hosting)</h2>
+    <p class="text-charcoal/80 leading-relaxed">Die Website wird bei Vercel Inc. (340 S Lemon Ave #4133, Walnut, CA 91789, USA) gehostet. Beim Aufruf werden technisch notwendige Daten verarbeitet (IP-Adresse, Zeitpunkt, aufgerufene Seite, Browser), um die Seite auszuliefern und vor Missbrauch zu schützen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren, funktionierenden Angebot). Mit Vercel besteht ein Auftragsverarbeitungsvertrag; eine Übermittlung in die USA erfolgt auf Grundlage des EU-US Data Privacy Framework bzw. der EU-Standardvertragsklauseln.</p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="font-serif text-2xl text-navy mb-4">3. Online-Reservierung</h2>
+    <p class="text-charcoal/80 leading-relaxed">Wenn Sie online einen Tisch reservieren, verarbeiten wir Ihren Namen, Ihre Telefonnummer, Ihre E-Mail-Adresse, Datum, Uhrzeit, Personenzahl und Ihre Anmerkung, um die Reservierung anzulegen, einen Tisch zuzuweisen und Sie bei Rückfragen oder Änderungen zu erreichen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher Maßnahmen) sowie Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie jederzeit für die Zukunft widerrufen können.</p>
+    <p class="text-charcoal/80 leading-relaxed mt-3">Die Daten werden in einer Datenbank bei Neon Inc. (Rechenzentrum Frankfurt am Main) gespeichert; zur Abstimmung der Geräte im Café nutzen wir einen Zwischenspeicher bei Upstash Inc. (Frankfurt am Main), der keine Gästedaten enthält. Zum Schutz vor Missbrauch wird Ihre IP-Adresse nur verschlüsselt (gehasht) und höchstens einen Tag gespeichert. Reservierungsdaten löschen wir, sobald sie für den Besuch und eventuelle Rückfragen nicht mehr benötigt werden, spätestens nach [ANZAHL] Monaten.</p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="font-serif text-2xl text-navy mb-4">4. Karte und Schriften</h2>
+    <p class="text-charcoal/80 leading-relaxed">Die Karte von Google Maps (Google Ireland Ltd., Gordon House, Barrow Street, Dublin 4, Irland) wird erst geladen, wenn Sie auf „Karte anzeigen“ klicken; erst dann werden Daten (u. a. Ihre IP-Adresse) an Google übertragen. Rechtsgrundlage ist Ihre Einwilligung durch den Klick (Art. 6 Abs. 1 lit. a DSGVO). Für die Darstellung verwenden wir Schriften von Google Fonts und ein Gestaltungs-Skript von Tailwind CSS, die von externen Servern geladen werden; dabei wird Ihre IP-Adresse an die jeweiligen Anbieter übermittelt (Art. 6 Abs. 1 lit. f DSGVO).</p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="font-serif text-2xl text-navy mb-4">5. Cookies und lokale Speicherung</h2>
+    <p class="text-charcoal/80 leading-relaxed">Ihre Auswahl im Cookie-Hinweis wird in Ihrem Browser gespeichert. Analyse- oder Werbe-Cookies setzen wir derzeit nicht ein.</p>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="font-serif text-2xl text-navy mb-4">6. Ihre Rechte</h2>
+    <p class="text-charcoal/80 leading-relaxed">Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht, eine erteilte Einwilligung zu widerrufen. Wenden Sie sich dazu an die oben genannten Kontaktdaten. Außerdem können Sie sich bei einer Datenschutz-Aufsichtsbehörde beschweren, z. B. bei der Landesbeauftragten für Datenschutz und Informationsfreiheit Nordrhein-Westfalen.</p>
+  </section>
+
+  <div class="mt-12 bg-gold/10 border border-gold/30 p-5 text-sm text-charcoal/70" style="border-radius:14px">
+    <p class="font-semibold text-navy mb-2">Noch ausstehende Angaben (Platzhalter):</p>
+    <ul class="list-disc list-inside space-y-1"><li>Name des Inhabers und E-Mail-Adresse</li><li>Löschfrist für Reservierungsdaten</li></ul>
+    <p class="mt-3 text-xs">Stand: Oktober 2026. Dieser Hinweis kann entfernt werden, sobald alle Angaben ergänzt und geprüft sind.</p>
+  </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html#top" class="logo"><b>Café Paris</b><span>Euskirchen</span></a>
+        <p style="margin-top:18px;max-width:300px">Modern Brunch Culture meets French Elegance – mitten in Euskirchen.</p>
+      </div>
+      <div>
+        <h4>Besuchen</h4>
+        <p>Berliner Straße 5<br>53879 Euskirchen<br><a href="tel:+4922517772127">02251 / 7772127</a></p>
+      </div>
+      <div>
+        <h4>Öffnungszeiten</h4>
+        <p>Mo – Sa · 09:00 – 19:00 Uhr<br>So &amp; Feiertage · 09:00 – 18:00 Uhr</p>
+        <p style="margin-top:10px"><a href="reservieren.html">Tisch reservieren →</a></p>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Café Paris Euskirchen · Alle Rechte vorbehalten</span>
+      <span><a href="impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
